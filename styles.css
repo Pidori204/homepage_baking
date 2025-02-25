@@ -1,0 +1,599 @@
+:root {
+    --primary-brown: #8B4513;
+    --secondary-brown: #DEB887;
+    --accent-beige: #fcf1dd;
+    --warm-cream: #ffffffe7;
+    --text-dark: #1a1a1a;  /* 더 진한 텍스트 색상 */
+    --text-light: #ffffff;  /* 밝은 배경에서의 텍스트 */
+    --text-medium: #4a4a4a;  /* 중간 톤의 텍스트 */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 부드러운 스크롤 효과를 위한 CSS 추가 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 기존 body 스타일 수정 */
+body {
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* 제목 요소들만 Cinzel 폰트 유지 */
+.title, 
+h1, 
+h2, 
+h3 {
+    font-family: 'Cinzel', serif;
+}
+
+/* 본문 텍스트 스타일 강화 */
+p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 65ch;  /* 최적의 가독성을 위한 줄 길이 */
+    margin: 1.5rem auto;
+    letter-spacing: 0.3px;
+    color: var(--text-medium);
+}
+
+/* 카드 내용 스타일 */
+.info-card p,
+.impact-card p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* 태그라인 스타일 수정 */
+.tagline {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.subtitle,
+.tagline {
+    font-family: 'Cinzel', serif;
+}
+
+.container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    padding: 6rem 2rem;  /* 상하 패딩 증가 */
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--warm-cream), var(--accent-beige));
+    text-align: center;
+    padding-top: 0;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 0rem;  /* 여백 축소 */
+    color: var(--primary-brown);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-brown);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.tagline {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    margin-top: 0.5rem;  /* 위쪽 여백 축소 */
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Vision Section */
+#vision {
+    background-color: var(--warm-cream);
+}
+
+.vision-content {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Class Info Section */
+#class-info {
+    background: linear-gradient(135deg, var(--accent-beige), var(--warm-cream));
+}
+
+#class-info h2 {
+    font-size: clamp(2.5rem, 3vw, 3rem);  /* 크기 조절 */
+    color: var(--primary-brown);
+    margin-bottom: 3rem;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.1);
+    text-align: center;  /* 중앙 정렬 추가 */
+    width: 100%;  /* 전체 너비 사용 */
+}
+
+#class-info h2:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--primary-brown);
+    border-radius: 2px;
+}
+
+.class-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;  /* 중앙 정렬 추가 */
+}
+
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+}
+
+/* Info Grid Layout - Mobile First */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 95%;  /* 너비 증가 */
+    max-width: 1400px;  /* 최대 너비 증가 */
+    margin: 0 auto;
+    padding: 0.5rem;  /* 패딩 감소 */
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.info-card:hover, .impact-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 아이콘 스타일링 */
+.info-card i, .impact-card i {
+    font-size: 2rem;
+    color: var(--primary-brown);
+    margin-bottom: 1.5rem;
+}
+
+/* Impact Section */
+#impact {
+    background: linear-gradient(135deg, var(--secondary-brown), var(--primary-brown));
+    color: var(--text-light);
+    padding: 4rem 2rem;
+}
+
+#impact h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.impact-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+}
+
+.impact-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.impact-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.impact-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+}
+
+.impact-card:hover .impact-img img {
+    transform: scale(1.05);
+}
+
+.impact-card i {
+    font-size: 2rem;
+    color: var(--primary-brown);
+    margin: 1.5rem 0;
+}
+
+.impact-card h3 {
+    color: var(--text-dark);
+    margin: 1rem 0;
+    padding: 0 1.5rem;
+}
+
+.impact-card p {
+    color: var(--text-medium);
+    padding: 0 1.5rem 2rem;
+    margin: 0;
+}
+
+.impact-message {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.impact-message h3 {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.impact-message p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Booking Section */
+#booking {
+    background: var(--accent-beige);
+}
+
+.booking-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Button Styles */
+.btn {
+    padding: 1rem 2rem;
+    background: var(--primary-brown);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: var(--warm-cream);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .bread-images {
+        gap: 1rem;
+        width: 50%;  /* 화면의 50% 너비로 제한 */
+        margin: 2rem auto;  /* 중앙 정렬 */
+    }
+    
+    .bread-img {
+        width: 80px;  /* 모바일에서 더 작은 크기 */
+        height: 80px;
+    }
+
+    .impact-img {
+        height: 180px;
+    }
+
+    .impact-grid {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    #impact h2 {
+        font-size: 2.2rem;  /* 모바일에서도 충분히 큰 크기 유지 */
+        padding: 0 1rem;    /* 좌우 여백 추가 */
+        line-height: 1.3;   /* 줄간격 조정 */
+        margin-bottom: 2rem;
+    }
+
+    .section-intro,
+    .impact-intro {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .impact-message {
+        margin: 2rem auto 0;
+        padding: 1.5rem;
+    }
+
+    .impact-message h3 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    /* Hero Section */
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .subtitle {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 2rem;
+    }
+
+    /* Section Headers */
+    h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin-bottom: 2rem;
+        position: relative;
+    }
+
+    h2:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-brown);
+    }
+
+    h3 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 1.5rem;
+    }
+
+    /* Content Text */
+    p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+
+    /* Vision Section */
+    .vision-content {
+        max-width: 1000px;
+        padding: 0 2rem;
+    }
+
+    /* Info Grid Layout */
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1400px;  /* 최대 너비 증가 */
+        width: 95%;  /* 너비 증가 */
+        gap: 2rem;
+    }
+
+    #class-info h2 {
+        font-size: 3rem;  /* 데스크톱에서의 크기 조절 */
+        margin-bottom: 3rem;
+    }
+
+    .class-content {
+        width: 95%;  /* 너비 증가 */
+        padding: 0 1rem;  /* 패딩 감소 */
+    }
+
+    .info-card {
+        min-width: 300px;
+        padding: 3rem;
+    }
+
+    .info-card i {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Impact Section */
+    .impact-grid {
+        gap: 4rem;
+    }
+
+    .impact-card {
+        padding: 3rem;
+    }
+
+    .impact-card i {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .impact-img {
+        height: 250px;
+    }
+
+    /* Booking Section */
+    .booking-container {
+        gap: 3rem;
+        padding: 2rem;
+    }
+
+    /* Button */
+    .btn {
+        font-size: 1.3rem;
+        padding: 1.3rem 2.6rem;
+    }
+
+    /* Modal */
+    .modal-content {
+        max-width: 600px;
+        padding: 3rem;
+    }
+
+    .modal-content h2 {
+        font-size: 2.8rem;
+    }
+
+    .modal-content input,
+    .modal-content select {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+}
+
+/* 기본 스타일 (모바일 퍼스트) */
+.bread-images {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;  /* 모바일에서는 간격을 좁게 */
+    margin: 2rem auto;
+    width: 90%;  /* 전체 너비를 90%로 설정 */
+    max-width: 300px;  /* 모바일에서 최대 너비 제한 */
+}
+
+.bread-img {
+    width: 70px;  /* 모바일에서 더 작은 크기로 시작 */
+    height: 70px;
+    border-radius: 30%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* 태블릿 크기부터 적용 */
+@media (min-width: 768px) {
+    .bread-images {
+        gap: 1.5rem;
+        width: 80%;
+        max-width: 400px;
+    }
+    
+    .bread-img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* 데스크톱 크기에서 적용 */
+@media (min-width: 1024px) {
+    .bread-images {
+        gap: 2rem;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .bread-img {
+        width: 150px;
+        height: 150px;
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake for a Cause</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <section id="hero">
+            <div class="bread-images">
+                <img src="images/cookie.jpg" alt="Fresh Baked Scone" class="bread-img">
+                <img src="images/choco_muffin.jpg" alt="Homemade Muffin" class="bread-img">
+                <img src="images/croffle.jpg" alt="Sweet Pastry" class="bread-img">
+            </div>
+            <h1 class="title">Bake. Learn. Give Back.</h1>
+            <p class="tagline">Bake for a Cause: One Class, One Day, One Impact</p>
+            <a href="#booking" class="btn">Join Us Today</a>
+            
+        </section>
+
+        <section id="vision">
+            <div class="vision-content">
+                <h2>Baking with Purpose</h2>
+                <p>As college students, we understand the importance of community and creativity. This one-day baking class is not just about learning the art of baking scones and muffins; it's about baking with a purpose.</p>
+                <br><br>
+
+                <div class="mission-statement">
+                    <h2>Making Sweet Impact</h2>
+                    <p>Our mission is simple: teach college students the joy of baking while making a real difference. For just $3, you can learn how to bake delicious treats and know that your participation is helping improve the lives of those in need.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="class-info">
+            <div class="class-content">
+                <h2>Bake with Us</h2>
+                <p class="section-intro">In just one day, you'll master the basics of baking fresh scones and muffins from scratch! Whether you're a beginner or just looking to refine your skills, our hands-on class will walk you through every step. Plus, all profits support those who need it most.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Join the Class, Make a Difference</h3>
+                        <p>Discover the joy of baking while making an impact on your community. During this one-day class, you'll bake, learn, and give back—all for a good cause.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>One Day Experience</h3>
+                        <p>Master the basics of baking in just one day! Our hands-on class guides you through every step of the process.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Just $3</h3>
+                        <p>All proceeds go directly to supporting local charitable causes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2>Sweet Results, Bigger Impact</h2>
+            <p class="impact-intro">Every muffin you bake helps bring hope to someone in need. We're proud to partner with local organizations to make sure your baking class experience leaves a lasting impact.</p>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-img">
+                        <img src="images/hospital-kids.jpg" alt="Children's Hospital Support">
+                    </div>
+                    <i class="fas fa-hospital"></i>
+                    <h3>Texas Children's Hospital</h3>
+                    <p>Your $3 donation goes directly to supporting children's healthcare and bringing smiles to young faces.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-img">
+                        <img src="images/community-shelter.jpg" alt="Local Community Support">
+                    </div>
+                    <i class="fas fa-home"></i>
+                    <h3>Local Shelters</h3>
+                    <p>Together, we can create positive change in our community, one treat at a time!</p>
+                </div>
+            </div>
+            
+            <div class="impact-message">
+                <h3>Bake for a Better Tomorrow</h3>
+                <p>By participating in our class, you're not just learning a new skill—you're helping provide support to those who need it most. Your contribution makes a real difference in our community.</p>
+            </div>
+        </section>
+
+        <section id="booking">
+            <h2>Ready to Bake and Give Back?</h2>
+            <div class="booking-container">
+                <div class="calendar">
+                    <iframe src="[Google Calendar Embed URL]" frameborder="0"></iframe>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-phone"></i> Phone: [Your Contact Number]</p>
+                    <p><i class="fas fa-money-bill"></i> Zelle: [Your Zelle Info]</p>
+                    <button class="btn register-btn" onclick="showRegistrationModal()">Register Now</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register for Baking Class</h2>
+            <form id="registrationForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="date" placeholder="Preferred Date" required>
+                <button type="submit" class="btn">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
