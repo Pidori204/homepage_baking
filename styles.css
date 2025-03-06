@@ -1,11 +1,11 @@
 :root {
-    --primary-brown: #8B4513;
-    --secondary-brown: #DEB887;
-    --accent-beige: #fcf1dd;
-    --warm-cream: #ffffffe7;
-    --text-dark: #1a1a1a;  /* 더 진한 텍스트 색상 */
-    --text-light: #ffffff;  /* 밝은 배경에서의 텍스트 */
-    --text-medium: #4a4a4a;  /* 중간 톤의 텍스트 */
+    --primary-brown: #a07657;
+    --secondary-brown: #ad8c74;
+    --accent-beige: #e1dbce;
+    --warm-cream: #efece7;
+    --text-dark: #4f483f;  /* 더 진한 텍스트 색상 */
+    --text-light: #f5f5f5;  /* 밝은 배경에서의 텍스트 */
+    --text-medium: #686158;  /* 중간 톤의 텍스트 */
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -167,7 +167,7 @@ section {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;  /* 좌우 패딩 감소 */
     text-align: center;  /* 중앙 정렬 추가 */
 }
 
@@ -183,21 +183,22 @@ section {
 /* Info Grid Layout - Mobile First */
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
-    width: 95%;  /* 너비 증가 */
-    max-width: 1400px;  /* 최대 너비 증가 */
+    width: 95%;  /* 90%에서 95%로 증가 */
     margin: 0 auto;
     padding: 0.5rem;  /* 패딩 감소 */
 }
 
 .info-card {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
     background: rgba(255, 255, 255, 0.95);
     padding: 2.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    width: 100%;
 }
 
 .info-card:hover, .impact-card:hover {
@@ -238,18 +239,20 @@ section {
 
 .impact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto 4rem;
+    padding: 2rem;
 }
 
 .impact-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.8);  /* 80% opacity white background */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    padding: 1.5rem;
 }
 
 .impact-img {
@@ -324,6 +327,21 @@ section {
     gap: 2rem;
     max-width: 1200px;
     width: 100%;
+    padding: 2rem;
+}
+
+.calendar {
+    width: 100%;
+    aspect-ratio: 4/3;
+    position: relative;
+}
+
+.calendar iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
 /* Button Styles */
@@ -415,6 +433,76 @@ section {
     .impact-message h3 {
         font-size: 1.8rem;
     }
+
+    section {
+        padding: 4rem 1rem;  /* 좌우 패딩 감소 */
+    }
+
+    .info-card, .impact-card {
+        padding: 2rem 1.5rem;  /* 카드 내부 패딩 조정 */
+    }
+
+    .impact-grid {
+        padding-left: calc((100% - 90%) / 2);
+        gap: 1.5rem;
+    }
+
+    .impact-card {
+        flex: 0 0 90%;
+    }
+
+    .calendar {
+        aspect-ratio: 1/1;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+}
+
+/* Impact cards for mobile */
+@media (max-width: 1024px) {
+    .impact-carousel-container {
+        width: 100%;
+        padding: 0 0.5rem;  /* 패딩 감소 */
+    }
+
+    .impact-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 2rem;
+        padding-left: calc((100% - 85%) / 2);
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .impact-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .impact-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .carousel-controls {
+        display: flex;
+    }
+
+    .booking-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .calendar {
+        aspect-ratio: 3/2;
+        margin-bottom: 2rem;
+    }
 }
 
 /* Desktop Styles */
@@ -470,7 +558,7 @@ section {
     /* Info Grid Layout */
     .info-grid {
         grid-template-columns: repeat(3, 1fr);
-        max-width: 1400px;  /* 최대 너비 증가 */
+        max-width: 1200px;
         width: 95%;  /* 너비 증가 */
         gap: 2rem;
     }
@@ -595,5 +683,54 @@ section {
     .bread-img {
         width: 150px;
         height: 150px;
+    }
+}
+
+/* Impact Section Styles */
+.impact-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: none; /* 기본적으로 숨김 */
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 1rem;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Hide carousel controls on desktop */
+@media (min-width: 1025px) {
+    .carousel-controls {
+        display: none;  /* Hide controls on desktop */
     }
 }

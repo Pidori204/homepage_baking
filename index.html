@@ -64,22 +64,32 @@
             <h2>Sweet Results, Bigger Impact</h2>
             <p class="impact-intro">Every muffin you bake helps bring hope to someone in need. We're proud to partner with local organizations to make sure your baking class experience leaves a lasting impact.</p>
             
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <div class="impact-img">
-                        <img src="images/hospital-kids.jpg" alt="Children's Hospital Support">
+            <div class="impact-carousel-container">
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-img">
+                            <img src="images/hospital-kids.jpg" alt="Children's Hospital Support">
+                        </div>
+                        <i class="fas fa-hospital"></i>
+                        <h3>Texas Children's Hospital</h3>
+                        <p>Your $3 donation goes directly to supporting children's healthcare and bringing smiles to young faces.</p>
                     </div>
-                    <i class="fas fa-hospital"></i>
-                    <h3>Texas Children's Hospital</h3>
-                    <p>Your $3 donation goes directly to supporting children's healthcare and bringing smiles to young faces.</p>
+                    <div class="impact-card">
+                        <div class="impact-img">
+                            <img src="images/community-shelter.jpg" alt="Local Community Support">
+                        </div>
+                        <i class="fas fa-home"></i>
+                        <h3>Local Shelters</h3>
+                        <p>Together, we can create positive change in our community, one treat at a time!</p>
+                    </div>
                 </div>
-                <div class="impact-card">
-                    <div class="impact-img">
-                        <img src="images/community-shelter.jpg" alt="Local Community Support">
-                    </div>
-                    <i class="fas fa-home"></i>
-                    <h3>Local Shelters</h3>
-                    <p>Together, we can create positive change in our community, one treat at a time!</p>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
             
@@ -93,7 +103,7 @@
             <h2>Ready to Bake and Give Back?</h2>
             <div class="booking-container">
                 <div class="calendar">
-                    <iframe src="[Google Calendar Embed URL]" frameborder="0"></iframe>
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&hl=en&title=Baking%20Class&showPrint=0&showCalendars=0&mode=AGENDA&src=NWVmZmUyMzcwZWFlYmRjYWMxZGU5ZWVlMWY0NWRkYTdiYTlmZTY4NGM5NTFjM2Y1YzZkYmJmNDUwMjU3ZWRlN0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23C0CA33" frameborder="0"></iframe>
                 </div>
                 <div class="contact-info">
                     <h3>Contact Information</h3>
@@ -118,5 +128,27 @@
             </form>
         </div>
     </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.impact-grid');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: 320,
+                behavior: 'smooth'
+            });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -320,
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
 </body>
 </html>
